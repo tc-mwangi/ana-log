@@ -1,1 +1,1 @@
-web: gunicorn analog.wsgi
+web: gunicorn analog.wsgi --log-file -
