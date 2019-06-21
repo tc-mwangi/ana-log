@@ -100,6 +100,22 @@ $(function() {
     }, 3000);
 })
 
+//  generate random number for start task
+    function setRandom() {
+        document.getElementById('start').innerHTML = Math.random() * 20 | 0;
+    }
+    setRandom();
+    setInterval(setRandom, 30000); 
+
+
+    //  generate random number for stop task
+    function setRandom() {
+        document.getElementById('stop').innerHTML = Math.random() * 5 | 0;
+    }
+    setRandom();
+    setInterval(setRandom, 40000); 
+
+
 });
 
 
