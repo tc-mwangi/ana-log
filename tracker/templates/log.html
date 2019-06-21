@@ -1,74 +1,44 @@
-
+{% extends 'base.html' %}
 
 {% block content %}
+    {{block.super}}
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>Simple Ajax Clock</title>
-		<style type="text/css">
-			body {
-				margin: 0;
-				padding: 0;
-			}
-			
-			#wrapper {
-				width: 100%;
-			}
-			
-			#clock {
-				width: 50%;
-				min-height: 100px;
-				margin: 50px auto;
-				text-align: center;
-				font-size: 85px;
-			}
-		</style>
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-		<script type="text/javascript">
-			var start_time;
-			var current_time;
-			
-			//gets current server time
-			var get_time = function () {
-				$.ajax({
-					type: 'GET',
-					url: '/my_ajax_request/',
-					data: ({ action : 'get_time' }),
-					success: (function (data) {
-						start_time = new Date(
-							data.year, 
-							data.month, 
-							data.day, 
-							data.hour, 
-							data.minute, 
-							data.second
-						);
-						$('#clock').html(current_time.toLocaleTimeString());
-					}),
-					dataType: 'json'
-				});
-			}
-			
-			//counts 0.25s
-			var cnt_time = function () {
-				current_time = new Date(start_time.getTime() + 250);
-				$('#clock').html(current_time.toLocaleTimeString());
-				start_time = current_time;
-			}
-			
-			setInterval(cnt_time, 250); //add 250ms to current time every 250ms
-			setInterval(get_time, 30250); //sync with server every 30,25 second
-			get_time();
-		</script>
-	</head>
-	<body>
-		<div id="wrapper">
-			<div id="clock"></div>
-		</div>
-	</body>
-</html>
-        
+
+	<html>
+			<head lang="en">
+				<meta charset="UTF-8">
+				<title>Report</title>
+				<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans" rel="stylesheet">
+				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css"/>
+				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+			</head>
+			<body>
+			<div class="container">
+				<h1>Ana_log</h1>
+				<h2>Report</h2>
+				<div class="row">
+					<div class="col-md-12">
+						<table class="table">
+							<tr class="table-header">
+								<th class="cell">Program Time</th>
+								<th class="cell">Event</th>
+								<th class="cell">Message</th>
+								<th class="cell">Actual Time</th>
+								<th class="cell">Display Message</th>
+				
+							</tr>
+							<tr  class="active">
+								<td>1</td>
+								<td>Smith</td>
+								<td>Smith Mark</td>
+								<td>#67/B Maxico Usa</td>
+								<td>mark@gmail.com</td>
+							</tr>							
+						</table>
+					</div>
+				</div>
+			</div>
+			</body>
+			</html>
 
 {% endblock %}

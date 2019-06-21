@@ -11,7 +11,20 @@ urlpatterns = [
     url('^$', views.index, name = 'index'),
     url(r'^log/$', views.log, name = 'log'),
     path('my_ajax_request', requestAjax, name='my_ajax_request'),
+
+
+    url(r'^foo', views.foo, name='foo'),
+    url(r'^mygetview', views.mygetview, name='mygetview'),
+    url(r'^mypostview', views.mypostview, name='mypostview'),
+    url(r'^myajaxview', views.myajaxview, name='myajaxview'),
+    url(r'^myajaxformview', views.myajaxformview, name='myajaxformview'),
 ]
 
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
+
+
+
+
+

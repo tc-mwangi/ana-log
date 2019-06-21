@@ -3,16 +3,19 @@
 An utterly fantastic project starter template for Django 2.0.
 
 ## Technologies Used
-
+### Frontend
 - HTML5
 - CSS
 - Bootstrap
-- Django Web Framework
 - Javascript
 - JQuery
 - AJAX
 
-## How to Use
+### Backend
+- Django Web Framework
+- Django REST Framework
+
+## How to Install
 
 To use this project, follow these steps:
 

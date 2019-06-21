@@ -1,7 +1,15 @@
-//Django setup for accepting ajax requests.
-// Cookie obtainer for Django
+
 
 $(document).ready(function(){
+    // show/hide report
+    $("#extra-content").hide();
+    $("#toggle-content").click(function(){
+        $("#extra-content").show();
+        $("#toggle-content").hide();
+    });
+
+    //Django setup for accepting ajax requests.
+    // Cookie obtainer for Django
     function getCookie(name) {
         var cookieValue = null;
         if (document.cookie && document.cookie !== '') {
@@ -17,6 +25,7 @@ $(document).ready(function(){
         }
         return cookieValue;
     }
+
     var csrftoken = getCookie('csrftoken');
     // Setup ajax connections safetly
     
@@ -24,6 +33,7 @@ $(document).ready(function(){
         // these HTTP methods do not require CSRF protection
         return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
     }
+
     $.ajaxSetup({
         beforeSend: function(xhr, settings) {
             if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
@@ -34,56 +44,20 @@ $(document).ready(function(){
 
     //Django Ajax Call Setup
     $.ajax({
-    url: '/my_ajax_request/',
-    data: {
-    'message': 'I want an AJAX response'
+        url: '/my_ajax_request/',
+        data: {
+        'message': 'I want an AJAX response'
     },
-    dataType: 'json',
-    type: 'POST',
-    success: function(data) {
-    if (data.is_valid) {
-    console.log(data.response);
-    } else {
-    console.log("You didn't message : I want an AJAX response");
-    }
-    }
+        dataType: 'json',
+        type: 'POST',
+        success: function(data) {
+        if (data.is_valid) {
+            console.log(data.response);
+        } else {
+            console.log("You didn't message : I want an AJAX response");
+        }
+        }
     });
-
-    // Try different clock setup
-    var start_time;
-    var current_time;
-
-    //gets current server time
-    var get_time = function () {
-        $.ajax({
-            type: 'GET',
-            url: '/my_ajax_request/,',
-            data: ({ action : 'get_time' }),
-            success: (function (data) {
-                start_time = new Date(
-                    data.year, 
-                    data.month, 
-                    data.day, 
-                    data.hour, 
-                    data.minute, 
-                    data.second
-                );
-                $('#clock').html(current_time.toLocaleTimeString());
-            }),
-            dataType: 'json'
-        });
-    }
-
-    //counts 0.25s
-    var cnt_time = function () {
-        current_time = new Date(start_time.getTime() + 250);
-        $('#clock').html(current_time.toLocaleTimeString());
-        start_time = current_time;
-    }
-
-    setInterval(cnt_time, 250); //add 250ms to current time every 250ms
-    setInterval(get_time, 30250); //sync with server every 30,25 second
-    get_time();
 
     // Render clock
     // Declare constants
@@ -126,7 +100,10 @@ $(function() {
     }, 3000);
 })
 
-})
+});
+
+
+
 
 
 
