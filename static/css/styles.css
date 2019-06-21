@@ -1,3 +1,13 @@
+/* main */
+body{
+    background-color: #1A1A1A;
+}
+
+
+
+/* end main */
+
+
 /* Layout */
 .main {
     display: flex;
@@ -10,6 +20,7 @@
 .clockbox,
 #clock {
     width: 100%;
+    background-color: aquamarine;
 }
 
 /* Clock styles */
@@ -23,6 +34,8 @@
 .mid-circle {
     fill: #000;
 }
+
+/* color should change */
 .hour-marks {
     fill: none;
     stroke: #000;
