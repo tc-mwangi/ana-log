@@ -1,4 +1,4 @@
-# Heroku Django Starter Template
+# Analog Task Tracker
 
 An utterly fantastic project starter template for Django 2.0.
 
@@ -44,6 +44,4 @@ See also, a [ready-made application](https://github.com/heroku/python-getting-st
 
 ## Further Reading
 
-- [Gunicorn](https://warehouse.python.org/project/gunicorn/)
-- [WhiteNoise](https://warehouse.python.org/project/whitenoise/)
-- [dj-database-url](https://warehouse.python.org/project/dj-database-url/)
+- [Live Site](https://analog-tracker.herokuapp.com/index/)

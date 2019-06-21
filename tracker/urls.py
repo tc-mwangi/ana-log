@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 app_name = 'tracker'
 
 urlpatterns = [
-    url(r'^index/$', views.index, name = 'index'),
+    url('^$', views.index, name = 'index'),
     url(r'^log/$', views.log, name = 'log'),
 ]
 
