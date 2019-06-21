@@ -2,11 +2,24 @@
 
 $(document).ready(function(){
     // show/hide report
-    $("#extra-content").hide();
-    $("#toggle-content").click(function(){
-        $("#extra-content").show();
-        $("#toggle-content").hide();
-    });
+    // $("#extra-content").hide();
+    // $("#toggle-content").click(function(){
+    //     $("#extra-content").show();
+    // });
+
+    $('#apireq').click( function() {
+        $.ajax({
+                 url : "http://localhost:8000/tasksapi",
+                 dataType: "json",
+                 success : function (data) {
+                          $('#name').text( data[0].name);
+                          $('#color').text( data[0].color);
+                          $('#start_time').text( data[0].start_time);
+                          $('#end_time').text( data[0].end_time);
+                          $('#status').text( data[0].status);
+                        }
+                     });
+                 });
 
     //Django setup for accepting ajax requests.
     // Cookie obtainer for Django

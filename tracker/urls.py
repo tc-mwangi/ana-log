@@ -10,9 +10,11 @@ app_name = 'tracker'
 urlpatterns = [
     url('^$', views.index, name = 'index'),
     url(r'^log/$', views.log, name = 'log'),
-    path('my_ajax_request', requestAjax, name='my_ajax_request'),
+    url(r'^ajax/my_ajax_request/$', views.requestAjax, name='requestAjax'),
+    
+    url(r'^tasksapi$', views.TaskList.as_view()),
 
-
+    # test ajax urls
     url(r'^foo', views.foo, name='foo'),
     url(r'^mygetview', views.mygetview, name='mygetview'),
     url(r'^mypostview', views.mypostview, name='mypostview'),

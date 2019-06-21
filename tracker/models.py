@@ -1,3 +1,8 @@
 from django.db import models
 
-# Create your models here.
+class Tasks(models.Model):
+    name = models.CharField(max_length=40)
+    color = models.CharField(max_length=40)
+    start_time = models.DateTimeField(auto_now_add=True)
+    end_time = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=40)

@@ -3,6 +3,23 @@ from django.contrib.auth import authenticate, login
 import json
 from django.http import JsonResponse
 import random
+import datetime as dt
+
+from rest_framework.response import Response
+from rest_framework.views import APIView
+# from .models import  AnaTask
+from .serializers import taskSerializer
+
+
+class TaskList(APIView):
+    def get(self, request):
+        tasks = Tasks.objects.all()
+        serialized = taskSerializer(tasks, many=True)
+        return Response(serialized.data)
+
+def index(request):
+    return render(request, 'index.html')
+
 
 
 def mygetview(request):
@@ -55,35 +72,9 @@ def myajaxformview(request):
 def foo(request,template='ajx/foo.html'):
     return render(request,template)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def index(request):  
-    return render(request, 'index.html')
-
-
-    # for N in range(1):
-    #     N = random.randint(10,20)
-    #     message = 'Start ' + 'N ' + 'servers'
-    #     print(message)
-    # return message 
-
-
-
-
 def log(request):
     return render(request, 'log.html')
+
 
 
 
